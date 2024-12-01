@@ -17,7 +17,7 @@ type NavigationSection = {
 
 const navigation: NavigationSection = {
   "Getting started": [
-    { title: "Introduction", href: "/docs/introduction" },
+    { title: "Introduction", href: "/docs" },
     { title: "Installation", href: "/docs/installation" },
   ],
   "Core Components": [
@@ -53,8 +53,25 @@ export function SiteNav() {
   }, [pathname]);
 
   return (
-    <ScrollArea.Root className="relative overflow-hidden">
-      <ScrollArea.Viewport className="rounded-[inherit] overflow-auto">
+    // <ScrollArea.Root className="relative h-[calc(100dvh-rem)] pt-8">
+    //   <ScrollArea.Viewport className="rounded-[inherit] overflow-auto">
+
+    //   </ScrollArea.Viewport>
+    //   <ScrollArea.Scrollbar
+    //     className="flex touch-none select-none bg-black/10 p-0.5 transition-colors duration-150 ease-out hover:bg-black/20 data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
+    //     orientation="vertical"
+    //   >
+    //     <ScrollArea.Thumb className="ScrollAreaThumb" />
+    //   </ScrollArea.Scrollbar>
+    //   <ScrollArea.Scrollbar
+    //     className="flex touch-none select-none bg-black/10 p-0.5 transition-colors duration-150 ease-out hover:bg-black/20 data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
+    //     orientation="horizontal"
+    //   >
+    //     <ScrollArea.Thumb className="ScrollAreaThumb" />
+    //   </ScrollArea.Scrollbar>
+    // </ScrollArea.Root>
+    <ScrollArea.Root className="w-full h-[calc(100dvh-3.6rem)] overflow-hidden pt-8">
+      <ScrollArea.Viewport className="w-full h-full">
         <nav>
           <ul role="list" className="h-full">
             {Object.entries(navigation).map(([section, items], index) => {
@@ -101,17 +118,13 @@ export function SiteNav() {
         </nav>
       </ScrollArea.Viewport>
       <ScrollArea.Scrollbar
-        className="flex touch-none select-none bg-black/10 p-0.5 transition-colors duration-150 ease-out hover:bg-black/20 data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
+        className="flex touch-none select-none bg-transparent p-0.5 transition-colors duration-150 ease-out hover:bg-black/20 data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
         orientation="vertical"
       >
-        <ScrollArea.Thumb className="ScrollAreaThumb" />
+        <ScrollArea.Thumb className="relative flex-1 rounded-full bg-zinc-300/60" />
       </ScrollArea.Scrollbar>
-      <ScrollArea.Scrollbar
-        className="flex touch-none select-none bg-black/10 p-0.5 transition-colors duration-150 ease-out hover:bg-black/20 data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
-        orientation="horizontal"
-      >
-        <ScrollArea.Thumb className="ScrollAreaThumb" />
-      </ScrollArea.Scrollbar>
+
+      <ScrollArea.Corner />
     </ScrollArea.Root>
   );
 }

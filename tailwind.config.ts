@@ -9,6 +9,25 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ["var(--font-dm-mono)", "monospace"],
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: {
+              fontFamily: "var(--font-dm-mono)", // Use DM Mono for `pre` elements
+              backgroundColor: "#f9fafb", // Optional: add a soft background color
+              padding: "1rem", // Optional: adjust padding
+              borderRadius: "0.375rem",
+              color: "#ffffff", // Optional: rounded corners
+            },
+            code: {
+              fontFamily: "var(--font-dm-mono)", // Use DM Mono for inline `code`
+            },
+          },
+        },
+      },
       colors: {
         // Light theme colors
         background: "hsl(var(--background))",

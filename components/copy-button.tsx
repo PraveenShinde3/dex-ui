@@ -1,13 +1,16 @@
 // CopyButton.tsx
 "use client";
 import { Clipboard } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 const CopyButton: React.FC<{ text: string }> = ({ text }) => {
+  const [copied, setCopied] = useState(false);
   const handleCopy = async () => {
     try {
+      setCopied(true);
       await navigator.clipboard.writeText(text);
-      alert("Copied to clipboard!");
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setCopied(false);
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
@@ -16,9 +19,15 @@ const CopyButton: React.FC<{ text: string }> = ({ text }) => {
   return (
     <button
       onClick={handleCopy}
-      className="flex items-center px-1 text-xs absolute top-2 right-2"
+      className=" px-1 text-xs absolute top-2 right-2"
     >
-      Copy <Clipboard size={"0.7rem"} />
+      {copied ? (
+        <span>Copied!</span>
+      ) : (
+        <span className="flex items-center">
+          Copy <Clipboard size={"0.7rem"} />
+        </span>
+      )}
     </button>
   );
 };

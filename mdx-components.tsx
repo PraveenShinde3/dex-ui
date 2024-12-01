@@ -7,7 +7,7 @@ let highlighter: Highlighter | null = null; // Specify the type explicitly
 
 (async () => {
   highlighter = await createHighlighter({
-    themes: ["github-dark", "dark-plus"], // Default theme
+    themes: ["github-dark", "dark-plus", "vesper"], // Default theme
     langs: ["javascript", "typescript", "html", "css"], // Add the languages you need
   });
 })();
@@ -32,7 +32,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     const highlightedCode =
       highlighter?.codeToHtml(children.trim(), {
         lang: language,
-        theme: "dark-plus",
+        theme: "vesper",
       }) || children;
 
     return (

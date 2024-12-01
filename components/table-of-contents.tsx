@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 
 interface TOCItem {
@@ -13,6 +13,7 @@ interface TOCItem {
 export function TableOfContents() {
   const [toc, setToc] = useState<TOCItem[]>([]);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const headings = document.querySelectorAll("h1, h2, h3, h4");
@@ -23,7 +24,7 @@ export function TableOfContents() {
     }));
     console.log(tocItems);
     setToc(tocItems);
-  }, []);
+  }, [pathname]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ export function TableOfContents() {
   };
 
   return (
-    <ScrollArea.Root className="h-[calc(100vh-4rem)] w-full overflow-hidden">
+    <ScrollArea.Root className="h-[calc(100vh-3.6rem)] w-full overflow-hidden pt-8">
       <ScrollArea.Viewport className="h-full w-full">
         <nav className="space-y-2 p-4">
           {/* <h2 className="font-medium text-sm">On this page</h2> */}

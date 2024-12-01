@@ -21,8 +21,11 @@ body {
 }
 
 .shiki-code > pre {
-  padding: 1rem;
+  padding: 1.5rem;
   font-size: 0.8rem;
+  /* overflow-x: hidden !important; */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
 }
 
 @layer base {

@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Inter } from "next/font/google";
+import { Inter, DM_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+// Load the font
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"], // Specify weights you need
+  variable: "--font-dm-mono", // Use a CSS variable for font
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       {/* <body className=""> */}
-      <body className={`${inter.className}  antialiased `}>
+      <body className={`${inter.className} ${dmMono.variable}  antialiased `}>
         <ThemeProvider defaultTheme="system" storageKey="theme">
           <div className="isolate min-h-screen">{children}</div>
         </ThemeProvider>
