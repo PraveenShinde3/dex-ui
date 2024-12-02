@@ -20,10 +20,10 @@ const navigation: NavigationSection = {
     { title: "Introduction", href: "/docs" },
     { title: "Installation", href: "/docs/installation" },
   ],
-  "Core Components": [
+  Components: [
     { title: "Accordion", href: "/docs/accordion" },
     { title: "File Tree", href: "/docs/file-tree", isNew: true },
-    { title: "Cursor", href: "/docs/cursor" },
+    { title: "Code Snippet", href: "/docs/code-snippet" },
   ],
   "Text Animations": [{ title: "Text Effect", href: "/docs/text-effect" }],
 };

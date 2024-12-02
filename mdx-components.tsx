@@ -1,16 +1,6 @@
 import React from "react";
 import type { MDXComponents } from "mdx/types";
-import { createHighlighter, Highlighter } from "shiki";
-import CopyButton from "@/components/copy-button";
-
-let highlighter: Highlighter | null = null; // Specify the type explicitly
-
-(async () => {
-  highlighter = await createHighlighter({
-    themes: ["github-dark", "dark-plus", "vesper"], // Default theme
-    langs: ["javascript", "typescript", "html", "css"], // Add the languages you need
-  });
-})();
+import { CodeShow } from "./components/code-show";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   // Utility to generate a slug/id from the heading text
@@ -26,24 +16,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
   const CodeBlock: React.FC<{ children: string; className?: string }> = ({
     children,
-    className,
   }) => {
-    const language = className ? className.replace("language-", "") : "text";
-    const highlightedCode =
-      highlighter?.codeToHtml(children.trim(), {
-        lang: language,
-        theme: "vesper",
-      }) || children;
-
-    return (
-      <div className="code-block-wrapper" style={{ position: "relative" }}>
-        <div
-          dangerouslySetInnerHTML={{ __html: highlightedCode }}
-          className="shiki-code relative"
-        />
-        <CopyButton text={children as string} />
-      </div>
-    );
+    return <CodeShow code={children.trim()} />;
   };
 
   return {

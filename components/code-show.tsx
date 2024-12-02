@@ -48,12 +48,12 @@ export function CodeShow({
 
   return (
     <div
-      className={`relative border rounded-md bg-gray-900 text-white ${className}`}
+      className={`relative  border rounded-md bg-gray-900 text-white ${className}`}
     >
       <CopyButton text={code} />
 
       <pre
-        className="overflow-auto text-base scrollbar-hidden"
+        className="overflow-auto max-h-[500px] text-base scrollbar-hidden"
         style={{ padding: "1.5rem" }}
         dangerouslySetInnerHTML={{ __html: highlightedCode }}
       ></pre>
