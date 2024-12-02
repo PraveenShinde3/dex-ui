@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from "../../app/docs/accordion/accordion";
+import { Accordion, AccordionItem } from "./accordion";
 
 export function AccordionDemo() {
   return (

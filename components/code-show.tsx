@@ -53,7 +53,7 @@ export function CodeShow({
       <CopyButton text={code} />
 
       <pre
-        className="overflow-auto text-sm scrollbar-hidden"
+        className="overflow-auto text-base scrollbar-hidden"
         style={{ padding: "1.5rem" }}
         dangerouslySetInnerHTML={{ __html: highlightedCode }}
       ></pre>
