@@ -21,22 +21,11 @@ const navigation: NavigationSection = {
     { title: "Installation", href: "/docs/installation" },
   ],
   "Core Components": [
-    { title: "Accordion", href: "/docs/accordion", isNew: true },
-    { title: "Animated Background", href: "/docs/animated-background" },
-    { title: "Animated Group", href: "/docs/animated-group" },
-    { title: "Animated Number", href: "/docs/animated-number" },
-    { title: "Border Trail", href: "/docs/border-trail" },
-    { title: "Carousel", href: "/docs/carousel" },
+    { title: "Accordion", href: "/docs/accordion" },
+    { title: "File Tree", href: "/docs/file-tree", isNew: true },
     { title: "Cursor", href: "/docs/cursor" },
-    { title: "Dialog", href: "/docs/dialog" },
   ],
-  "Text Animations": [
-    { title: "Text Effect", href: "/docs/text-effect" },
-    { title: "Text Loop", href: "/docs/text-loop" },
-    { title: "Text Morph", href: "/docs/text-morph" },
-    { title: "Text Scramble", href: "/docs/text-scramble" },
-    { title: "Text Shimmer", href: "/docs/text-shimmer" },
-  ],
+  "Text Animations": [{ title: "Text Effect", href: "/docs/text-effect" }],
 };
 
 export function SiteNav() {
@@ -53,23 +42,6 @@ export function SiteNav() {
   }, [pathname]);
 
   return (
-    // <ScrollArea.Root className="relative h-[calc(100dvh-rem)] pt-8">
-    //   <ScrollArea.Viewport className="rounded-[inherit] overflow-auto">
-
-    //   </ScrollArea.Viewport>
-    //   <ScrollArea.Scrollbar
-    //     className="flex touch-none select-none bg-black/10 p-0.5 transition-colors duration-150 ease-out hover:bg-black/20 data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
-    //     orientation="vertical"
-    //   >
-    //     <ScrollArea.Thumb className="ScrollAreaThumb" />
-    //   </ScrollArea.Scrollbar>
-    //   <ScrollArea.Scrollbar
-    //     className="flex touch-none select-none bg-black/10 p-0.5 transition-colors duration-150 ease-out hover:bg-black/20 data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col"
-    //     orientation="horizontal"
-    //   >
-    //     <ScrollArea.Thumb className="ScrollAreaThumb" />
-    //   </ScrollArea.Scrollbar>
-    // </ScrollArea.Root>
     <ScrollArea.Root className="w-full h-[calc(100dvh-3.6rem)] overflow-hidden pt-8">
       <ScrollArea.Viewport className="w-full h-full">
         <nav>
