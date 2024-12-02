@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { ChevronRight, ChevronDown, Folder, File } from "lucide-react";
 
 interface FileTreeItem {
@@ -37,12 +38,15 @@ const FileTreeNode: React.FC<{
 
   return (
     <div className="select-none">
-      <div
+      <motion.div
         className={`flex items-center py-1 px-2 hover:bg-gray-100 cursor-pointer ${
           depth === 0 ? "bg-gray-50" : ""
         }`}
         style={{ paddingLeft: `${depth * 1.5 + 0.5}rem` }}
         onClick={handleSelect}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.2 }}
       >
         {item.type === "folder" && (
           <span className="mr-1" onClick={handleToggle}>
@@ -54,14 +58,19 @@ const FileTreeNode: React.FC<{
           </span>
         )}
         {item.type === "folder" ? (
-          <Folder className="w-4 h-4 text-zinc-900  mr-2" />
+          <Folder className="w-4 h-4 text-zinc-900 mr-2" />
         ) : (
           <File className="w-4 h-4 text-gray-500 mr-2" />
         )}
         <span className="text-sm">{item.name}</span>
-      </div>
+      </motion.div>
       {item.type === "folder" && isExpanded && item.children && (
-        <div>
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           {item.children.map((child, index) => (
             <FileTreeNode
               key={`${child.name}-${index}`}
@@ -70,7 +79,7 @@ const FileTreeNode: React.FC<{
               onSelect={onSelect}
             />
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );

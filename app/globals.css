@@ -28,6 +28,15 @@ body {
   -ms-overflow-style: none;
 }
 
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+pre::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

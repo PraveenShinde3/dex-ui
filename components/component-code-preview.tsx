@@ -1,23 +1,23 @@
-"use client";
-
 import * as React from "react";
 import * as Tabs from "@radix-ui/react-tabs";
-
+import { readFileContents } from "@/libs/utils";
 import { cn } from "@/libs/utils";
+import { CodeShow } from "./code-show";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   component: React.ReactElement;
-  code: string;
+  filePath: string;
   align?: "center" | "start" | "end";
 }
 
-export function ComponentPreview({
+export async function ComponentPreview({
   component,
-  code,
+  filePath,
   align = "center",
   className,
   ...props
 }: ComponentPreviewProps) {
+  const codeData = await readFileContents(filePath);
   return (
     <div
       className={cn("group relative my-4 flex flex-col space-y-2", className)}
@@ -65,7 +65,7 @@ export function ComponentPreview({
         </Tabs.Content>
         <Tabs.Content value="code" className="mt-4">
           <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
-            {code}
+            <CodeShow code={codeData} />
           </div>
         </Tabs.Content>
       </Tabs.Root>

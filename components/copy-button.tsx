@@ -24,7 +24,7 @@ const CopyButton: React.FC<{ text: string }> = ({ text }) => {
       {copied ? (
         <span>Copied!</span>
       ) : (
-        <span className="flex items-center">
+        <span className="flex font-mono gap-1 items-center">
           Copy <Clipboard size={"0.7rem"} />
         </span>
       )}

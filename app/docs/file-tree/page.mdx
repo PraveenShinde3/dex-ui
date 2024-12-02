@@ -1,4 +1,52 @@
 import FileTreeDemo from "./file-tree-demo";
 import { ComponentPreview } from "@/components/component-code-preview";
 
-<ComponentPreview component={<FileTreeDemo />} code="dd" />
+# FileTree
+
+The **FileTree** component is a React-based UI component that displays a hierarchical file structure with support for expanding and collapsing folder nodes.
+
+<ComponentPreview
+  component={<FileTreeDemo />}
+  filePath="app/docs/file-tree/file-tree.tsx"
+/>
+
+## Props Table
+
+| Prop         | Type                         | Default | Description                                                                     |
+| ------------ | ---------------------------- | ------- | ------------------------------------------------------------------------------- |
+| data         | FileTreeItem[]               | -       | An array of file and folder objects that define the structure of the file tree. |
+| initialDepth | number                       | 0       | The initial depth level for the component (used for padding and indentation).   |
+| onSelect     | (item: FileTreeItem) => void | -       | A callback function triggered when a file or folder item is clicked.            |
+
+## Usage
+
+To use the FileTree component, you need to import it and pass an array of file/folder objects as the data prop. Optionally, you can provide an onSelect callback to handle item clicks.
+
+```javascript
+import { FileTree } from "./FileTree";
+
+const fileData = [
+  {
+    name: "Folder 1",
+    type: "folder",
+    children: [
+      { name: "File 1.1", type: "file" },
+      {
+        name: "Folder 1.2",
+        type: "folder",
+        children: [
+          { name: "File 1.2.1", type: "file" },
+          { name: "File 1.2.2", type: "file" },
+        ],
+      },
+    ],
+  },
+  { name: "File 2", type: "file" },
+];
+
+<FileTree data={fileData} onSelect={(item) => console.log(item)} />;
+```
+
+## Conclusion
+
+The FileTree component is ideal for showcasing or managing hierarchical data structures, such as file systems or nested data representations, in a user-friendly manner. The support for expandable folders and built-in animations makes it an engaging addition to any project.

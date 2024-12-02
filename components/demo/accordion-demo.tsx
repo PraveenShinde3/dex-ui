@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from "../dex-ui/accordion";
+import { Accordion, AccordionItem } from "../../app/docs/accordion/accordion";
 
 export function AccordionDemo() {
   return (
