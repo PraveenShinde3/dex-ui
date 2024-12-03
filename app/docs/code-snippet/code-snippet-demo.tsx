@@ -1,15 +1,13 @@
 import CodeSnippet from "./code-snippet"; // Adjust the path as needed
 
 const CodeSnippetDemo = () => {
-  const sampleCode = `
-    function greet(name) {
-      console.log("Hello, " + name);
-    }
-    greet("World");
-  `;
+  const sampleCode = `function greet(name) {
+    console.log("Hello, " + name);
+}
+greet("World");`;
 
   return (
-    <div>
+    <div className="flex justify-center">
       <CodeSnippet
         code={sampleCode}
         language="javascript"

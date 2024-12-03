@@ -25,7 +25,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({ code, className }) => {
   };
 
   return (
-    <div className={`relative border rounded-md ${className}`}>
+    <div className={`relative border rounded-md w-fit p-6 ${className}`}>
       <button
         onClick={handleCopy}
         className="px-1 text-xs absolute top-2 right-2"
@@ -39,7 +39,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({ code, className }) => {
         )}
       </button>
 
-      <pre className="overflow-auto max-h-[500px] text-black text-base scrollbar-hidden">
+      <pre className="overflow-auto max-h-[500px] text-black text-sm scrollbar-hidden">
         {code}
       </pre>
     </div>

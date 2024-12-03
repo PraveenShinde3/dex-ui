@@ -20,7 +20,10 @@ export async function ComponentPreview({
   const codeData = await readFileContents(filePath);
   return (
     <div
-      className={cn("group relative my-4 flex flex-col space-y-2", className)}
+      className={cn(
+        "flex-1 group relative my-4 flex flex-col space-y-2",
+        className
+      )}
       {...props}
     >
       <Tabs.Root defaultValue="preview" className="relative w-full">

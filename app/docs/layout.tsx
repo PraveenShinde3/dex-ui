@@ -9,7 +9,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="relative flex min-h-screen max-w-[1920px] mx-auto flex-col ">
+    <div className="relative flex w-full min-h-screen max-w-[1920px] mx-auto flex-col ">
       {/* <SiteHeader /> */}
       <div className="flex-1 mx-auto w-full px-20 ">
         <div className="mx-auto flex w-full flex-col justify-between items-start md:flex-row md:space-x-12">
