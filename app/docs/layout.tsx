@@ -1,5 +1,5 @@
 import React from "react";
-import { SiteHeader } from "@/components/site-header";
+// import { SiteHeader } from "@/components/site-header";
 import { SiteNav } from "@/components/site-nav";
 import { TableOfContents } from "@/components/table-of-contents";
 
@@ -10,7 +10,7 @@ export default function DocsLayout({
 }>) {
   return (
     <div className="relative flex min-h-screen max-w-[1920px] mx-auto flex-col ">
-      <SiteHeader />
+      {/* <SiteHeader /> */}
       <div className="flex-1 mx-auto w-full px-20 ">
         <div className="mx-auto flex w-full flex-col justify-between items-start md:flex-row md:space-x-12">
           <aside className="sticky top-14 hidden w-[220px] shrink-0 md:block overflow-y-auto">

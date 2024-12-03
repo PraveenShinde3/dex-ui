@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Inter, DM_Mono } from "next/font/google";
 import "./globals.css";
+import { SiteHeader } from "@/components/site-header";
 
 const inter = Inter({ subsets: ["latin"] });
 // Load the font
@@ -26,7 +27,10 @@ export default function RootLayout({
       {/* <body className=""> */}
       <body className={`${inter.className} ${dmMono.variable}  antialiased `}>
         <ThemeProvider defaultTheme="system" storageKey="theme">
-          <div className="isolate min-h-screen">{children}</div>
+          <div className="isolate flex flex-col min-h-screen">
+            <SiteHeader />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
