@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Home() {
   return (
@@ -10,15 +11,15 @@ export default function Home() {
           </h1>
           <p className="text-base mt-4">
             Free and open-source components crafted for modern React apps.
-            Powered by Tailwind CSS, Framer Motion, Dex-UI is perfect for
+            Powered by Tailwind CSS, Framer Motion. Dex-UI is perfect for
             developers and designers looking to bring life to their interfaces
           </p>
           <p className="mt-10">
             <Link
               href="/docs"
-              className="bg-zinc-900 text-white px-4 py-2 rounded-xl transition-colors duration-200"
+              className="bg-zinc-900 mx-auto flex gap-2 items-center w-fit text-white px-4 py-2 rounded-xl transition-colors duration-200 text-sm"
             >
-              Documents
+              Explore Docs <IoIosArrowForward />
             </Link>
           </p>
         </div>
